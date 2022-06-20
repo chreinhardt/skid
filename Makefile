@@ -9,7 +9,11 @@ CC=cc
 #Following added for gcc
 #CFLAGS = -O3 -funroll-loops
 CFLAGS = -O3
-LIBS	=   -lm
+
+# tirpc library (needed if glibc >= 2.32)
+RPC_LIB = -ltirpc
+
+LIBS	=   -lm $(RPC_LIB)
 
 default:	skid totipnat
 	@echo To try the demo, type demo!
